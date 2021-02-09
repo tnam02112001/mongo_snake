@@ -11,7 +11,9 @@ import {
 
 const App = () =>
 {
+   
    const canvasRef = useRef()
+   const [score, setScore] = useState(0);
    const [snake, setSnake] = useState(SNAKE_START);
    const [apple, setApple] = useState(APPLE_START);
    const [dir, setDir] = useState([0, -1]);
@@ -29,7 +31,15 @@ const App = () =>
       setSpeed(null);
       setGameOver(true);
    }
-   const moveSnake = ({ keyCode }) => keyCode>= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
+   const moveSnake = ({keyCode}) => 
+   {
+      if (keyCode < 37 || keyCode > 40)
+         return 
+      const newDir = DIRECTIONS[keyCode]
+      if (Math.abs(newDir[0]) == Math.abs(dir[0]) || Math.abs(newDir[1]) == Math.abs(dir[1]))
+         return
+      setDir(newDir);
+   }
    const createApple= () =>
       apple.map((_, i) => Math.floor(Math.random()*(CANVAS_SIZE[i])/ SCALE));
 
@@ -43,7 +53,7 @@ const App = () =>
          return true;
       for (const segment of s)
       {
-         if (piece[0] == segment [0] && piece[1] == segment[1]) return true;
+         if (piece[0] == segment[0] && piece[1] == segment[1]) return true;
       }
       return false;
 
@@ -57,6 +67,7 @@ const App = () =>
             newApple = createApple();
          }
          setApple(newApple);
+         setScore(score + 10);
          return true;
       }
       return false;
@@ -77,9 +88,9 @@ const App = () =>
       const context = canvasRef.current.getContext("2d");
       context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
       context.clearRect(0, 0 , CANVAS_SIZE[0], CANVAS_SIZE[1]);
-      context.fillStyle = "red";
+      context.fillStyle = "white";
       snake.forEach(([x, y])=>context.fillRect(x, y, 1, 1));
-      context.fillStyle = "lightblue";
+      context.fillStyle = "pink";
       context.fillRect(apple[0], apple[1], 1, 1);
    }, [snake, apple, gameOver])
 
@@ -87,13 +98,12 @@ const App = () =>
 
    return (
    <div role="button" tabIndex = "0" onKeyDown = {e=> moveSnake(e)}>
+      <pre> SCORE: {score}</pre>
       <canvas
-         
-         style = {{border: "1px solid black"}}
+         style = {{backgroundColor: "lightgreen"}}
          ref = {canvasRef}
          width = {`${CANVAS_SIZE[0]}px`}
          height = {`${CANVAS_SIZE[1]}px`}
-         
 
       />
       {gameOver && <dif>GAME OVER!</dif>}

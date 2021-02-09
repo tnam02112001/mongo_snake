@@ -1,4 +1,4 @@
-const CANVAS_SIZE = [1024, 768];
+const CANVAS_SIZE = [1200, 800];
 const SNAKE_START = [
   [8, 7],
   [8, 8]
