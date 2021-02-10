@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Style Guides
+
+These will be the style guides we adhere to:
+JavaScript - https://github.com/prettier/prettier
+Python - https://www.python.org/dev/peps/pep-0008/
+
+These plugins should be used for style checking:
+ESLint - https://eslint.org/
+pycodestyle - https://pypi.org/project/pycodestyle/
