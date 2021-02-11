@@ -1,3 +1,34 @@
+# Mongo Snake
+Mongo Snake is a simple Snake Game developed by Nam Nguyen, Edward Du and Michael Greene
+
+## Style Guides
+Contributors to this project are encouraged to follow these following style guides:
+| Environement | Description |
+| --- | --- |
+| Python | [PEP8](https://www.python.org/dev/peps/pep-0008/) |
+| Javascript/React| [Airbnb JavaScript Style Guide](https://airbnb.io/javascript/react/) |
+
+### Setting up IDE plugins
+#### Integrating Python Style Checker into Visual Studio Code
+1. Install the [pycodestyle](https://pypi.org/project/pycodestyle/) package
+2. Install the [pylint] package and change the default linter to pycodesyle by following this [instruction](https://code.visualstudio.com/docs/python/linting)
+
+#### Integrating Automatic Javascript/React Code Formatter (Prettier) into Visual Studio Code 
+1. Install the Prettier dependency: 
+`npm install --save husky lint-staged prettier`
+2. Add the following field to the package.json section:
+`+  "husky": {
++    "hooks": {
+`+      "pre-commit": "lint-staged"
++    }
+`+  }`
+
+`+ "lint-staged": {
++   "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+`+     "prettier --write"
++   ]
+`+ },`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,13 +99,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### Style Guides
-
-These will be the style guides we adhere to:
-JavaScript - https://github.com/prettier/prettier
-Python - https://www.python.org/dev/peps/pep-0008/
-
-These plugins should be used for style checking:
-ESLint - https://eslint.org/
-pycodestyle - https://pypi.org/project/pycodestyle/
