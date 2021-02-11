@@ -11,23 +11,25 @@ Contributors to this project are encouraged to follow these following style guid
 ### Setting up IDE plugins
 #### Integrating Python Style Checker into Visual Studio Code
 1. Install the [pycodestyle](https://pypi.org/project/pycodestyle/) package
-2. Install the [pylint] package and change the default linter to pycodesyle by following this [instruction](https://code.visualstudio.com/docs/python/linting)
+2. Install the pylint package and change the default linter to pycodesyle by following this [instruction](https://code.visualstudio.com/docs/python/linting)
 
 #### Integrating Automatic Javascript/React Code Formatter (Prettier) into Visual Studio Code 
 1. Install the Prettier dependency: 
 `npm install --save husky lint-staged prettier`
 2. Add the following field to the package.json section:
-`+  "husky": {
+```
++  "husky": {
 +    "hooks": {
-`+      "pre-commit": "lint-staged"
++      "pre-commit": "lint-staged"
 +    }
-`+  }`
++  }
 
-`+ "lint-staged": {
++ "lint-staged": {
 +   "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-`+     "prettier --write"
++     "prettier --write"
 +   ]
-`+ },`
++ },
+```
 
 # Getting Started with Create React App
 
