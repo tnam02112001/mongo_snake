@@ -10,7 +10,6 @@
 }
 
 .image {
-  width: 1000px;
   height: 600px;
   border-radius: 10px;
 }
@@ -59,14 +58,13 @@
   transform: scale(1.08);
 }
 
-.skins-title {
+.title {
   position: absolute;
   top: 6%;
-  left: 45%;
-  right: 40%;
+  width: 100%;
+  text-align: center;
   font-size: 2em;
   font-family: 'Quicksand', sans-serif;
-
 }
 
 /* 

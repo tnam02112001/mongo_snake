@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SliderData } from './SliderData';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 
 const ImageSlider = ({ slides }) => {
@@ -21,7 +20,7 @@ const ImageSlider = ({ slides }) => {
     <section className='slider'>
       <FaCaretLeft className='left-arrow' onClick={prevSlide} />
       <FaCaretRight className='right-arrow' onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
+      {slides.map((slide, index) => {
         return (
           <div
             className={index === current ? 'slide active' : 'slide'}
