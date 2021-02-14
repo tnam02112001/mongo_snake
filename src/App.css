@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #8FF4F4; */
+}
+
+.image {
+  height: 600px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.home-button {
+  color: #000;
+  /* position: fixed; */
+  font-size: 3rem;
+}
+
+.skins-button {
+  color: #000;
+  font-size: 3rem;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+.title {
+  position: absolute;
+  top: 6%;
+  width: 80%;
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.rectangle {
+  position: absolute;
+  display: inline-block;
+  width: 1280px;
+  height: 80px;
+  background: darkgreen;
+}
+.text{
+   position: absolute;
+   left: 40px;
+   top: 36px;
+   color: white;
+   font: italic small-caps bold 20px cursive;
+}
+
+.button{
+   position: absolute;
+   left: 1180px;
+   top: 40px;
+}
