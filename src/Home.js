@@ -1,49 +1,47 @@
 import React from 'react';
 import './App.css';
 import { FaPalette } from 'react-icons/fa';
-import { FaPlayCircle } from 'react-icons/fa';
+import { FaPlayCircle, FaListOl, FaHourglassStart } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
 function Home() {
     return (
-        <div className="homePage" style={{backgroundColor: '#8FF4F4', width : '1280px', height : '720px', position: 'absolute', top: '0px'}}>
-            <h3 style = {{textAlign: 'center'}}>MongoSnake</h3>
+        <div className="homePage">
+            {/* style={{backgroundColor: '#8FF4F4', width : '100vh', height : '720px', position: 'absolute', top: '0px'}} */}
             {/* <small style = {{display: 'flex', textAlign: 'center'}}>Skins</small> <br /> */}
-            
-            <Link to="/skins" 
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-                }}
-            >
-                <FaPalette className="skins-button" />
-            </Link>
+            <div className="button-container">
+                <h3 className="homeTitle">MongoSnake</h3>
+                
+                <small></small> <br />
+                {/* <small>Settings</small> <br /> */}
+                <Link to="/settings">
+                    <FaCog className="settings-button" />
+                </Link>
+                <small></small><br />
+                <Link to="/leaderboards">
+                    <FaListOl className="leaderboard-button" />
+                </Link>
+                <div className="playContainer">
+                    <Link to="/skins">
+                        <FaPalette className="skins-button" />
+                    </Link>
 
-            <small></small> <br />
-            {/* <small>Play</small> <br /> */}
-            <Link to="/gameplay"
-             style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-                }}
-            >
-                <FaPlayCircle className="skins-button" />
-            </Link>
-            
-            <small></small> <br />
-            {/* <small>Settings</small> <br /> */}
-            <Link to="/settings"
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-                }}>
-                <FaCog className="skins-button" />
-            </Link>
+                    {/* <small>Play</small> <br /> */}
+                    <Link to="/gameplay">
+                        <FaPlayCircle className="gameplay-button" />
+                    </Link>
+
+                    <Link to="/upgrades">
+                        <FaHourglassStart className="upgrades-button" />
+                    </Link>
+                    <form className="userInput">
+                        <label for="Username" className="inputText"></label><br />
+                        <input type="text" id="Username" name="Username" placeholder="Username" className="inputBox"></input>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }

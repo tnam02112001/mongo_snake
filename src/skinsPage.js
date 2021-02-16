@@ -94,4 +94,6 @@ class skinsPage extends Component{
     );
 }
 }
+
+
 export default skinsPage;
