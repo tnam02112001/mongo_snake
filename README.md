@@ -5,7 +5,7 @@
 4. For the setting pages, I used a third-party dependency called "react-horizontal-scrolling-menu". To install this dependency, simply run this command:
 5. The modified setting pages didnt have any images right now. I will try to fix this to make it looks better.
 
-### More required dependencies:
+### Required dependencies:
 1. `npm install react-bootstrap-validation --save`
 2. `npm install bootstrap --save`
 3. `npm install --save react-horizontal-scrolling-menu`
