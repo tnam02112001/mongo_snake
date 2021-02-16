@@ -18,37 +18,35 @@ const list = [
    
   ];
   
+  
   // One item component
   // selected prop will be passed
-   const MenuItem = ({text, selected}) => {
-    return <div
-      className={`menu-item ${selected ? 'active' : ''}`}
-      >{text}</div>;
-  };
-  
+const MenuItem = ({text, selected}) => {
+return <div
+  className={`menu-item ${selected ? 'active' : ''}`}
+  >{text}</div>;
+};
+
   // All items component
   // Important! add unique key
-    export const Menu = (list, selected) =>
-        list.map(el => {
-        const {name} = el;
-        return <MenuItem text={name} key={name} selected={selected} />;
-    });
+  export const Menu = (list, selected) =>
+      list.map(el => {
+      const {name} = el;
+      return <MenuItem text={name} key={name} selected={selected} />;
+  });
   
   
-  const Arrow = ({ text, className }) => {
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
-  };
-  
-  
-  const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-  const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+const Arrow = ({ text, className }) => {
+  return (
+    <div
+      className={className}
+    >{text}</div>
+  );
+};
+const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
+const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 const selected = settings['snakeColor'];
-
 class skinsPage extends Component{
     constructor(props) {
         super(props);
@@ -56,13 +54,13 @@ class skinsPage extends Component{
         this.menuItems = Menu(list, selected);
       }
 
-      state = {
-        selected
-      };
+      state = {selected};
+
       onSelect = key => {
         this.setState({ selected: key });
         settings['snakeColor'] = key;
       }
+
       render() {
         const { selected } = this.state;
         // Create menu from items
@@ -87,7 +85,7 @@ class skinsPage extends Component{
                 data={menu}
                 arrowLeft={ArrowLeft}
                 arrowRight={ArrowRight}
-                selected={selected}
+                selected={settings['snakeColor']}
                 onSelect={this.onSelect}
         /></div>
         </div>
