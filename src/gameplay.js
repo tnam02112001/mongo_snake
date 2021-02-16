@@ -15,6 +15,7 @@ const Gameplay = () =>
 {
    
    const canvasRef = useRef()
+   const gameSpeed = SPEED_CONSTANTS [settings['difficulty']];
    const [score, setScore] = useState(0);
    const [snake, setSnake] = useState(SNAKE_START);
    const [apple, setApple] = useState(APPLE_START);
@@ -27,7 +28,7 @@ const Gameplay = () =>
       setSnake(SNAKE_START);
       setApple(APPLE_START);
       setDir([0, -1]);
-      setSpeed(SPEED_CONSTANTS [settings['difficulty']]);
+      setSpeed(gameSpeed);
       setGameOver(false);
    }
    const endGame = () =>{
@@ -68,7 +69,7 @@ const Gameplay = () =>
             newApple = createApple();
          }
          setApple(newApple);
-         setScore(score + 10);
+         setScore(score + 1500/gameSpeed);
          return true;
       }
       return false;
@@ -97,7 +98,7 @@ const Gameplay = () =>
    return (
    <div role="button" tabIndex = "0" onKeyDown = {e=> moveSnake(e)}>
       <div className = "rectangle"/>
-      <prev className = "text"> SCORE: {score}</prev>
+      <prev className = "score-text"> SCORE: {score}</prev>
       <canvas
          style = {{backgroundColor: "lightgreen", position: "absolute", top: "80px"}}
          ref = {canvasRef}
@@ -105,7 +106,7 @@ const Gameplay = () =>
          height = {`${CANVAS_SIZE[1]}px`}
       />
       {gameOver && <dif style = {{position: "absolute", top: "20px", left: "640px", color: "white"}}>GAME OVER!</dif>}
-      <div className = "button">
+      <div className = "startgame-button">
          <button onClick = {startGame}>Start Playing</button>
          </div>
    </div>)

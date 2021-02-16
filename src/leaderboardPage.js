@@ -27,7 +27,7 @@ function leaderboardPage() {
         <Link to="/">
             <FaArrowCircleLeft className="home-button" />
         </Link>
-        <h1 className="mainText-leaderboard">Leaderboard</h1>
+        <h1 className="mainTitle">Leaderboard</h1>
         <div className="tableContainer">
           <ReactBootstrap.Table striped hover className="tablecss">
             <thead>

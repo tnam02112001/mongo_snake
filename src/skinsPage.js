@@ -67,20 +67,13 @@ class skinsPage extends Component{
         const menu = this.menuItems;
     
     return (
-        <div style={{backgroundColor: '#8FF4F4', width : '1280px', height : '720px'}}>
+        <div className = "settingPage">
             <Link to="/">
                 <FaArrowCircleLeft className="home-button" />
             </Link>
 
-            <h3 className='title'>Choose your color</h3>
-            <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "400px"
-                }}
-            >
+            <h1 className='mainTitle'>Choose your color</h1>
+            <div className = 'scrollMenu'>
                 <ScrollMenu
                 data={menu}
                 arrowLeft={ArrowLeft}

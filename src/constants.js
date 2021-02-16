@@ -1,5 +1,3 @@
-import skinsPage from "./skinsPage";
-
 const CANVAS_SIZE = [1280, 640];
 const SNAKE_START = [
   [8, 7],

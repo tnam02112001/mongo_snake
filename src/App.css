@@ -9,15 +9,6 @@
   float: left;
 }
 
-.mainText-leaderboard {
-  padding-top: 2%;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 3em;
-  width: 90%;
-  margin-left: 5%;
-}
-
 .colNames {
   font-family: 'Quicksand', sans-serif;
   border: none !important;
@@ -62,7 +53,7 @@
   background-color: #8FF4F4;
 }
 
-.mainText-upgrades {
+.mainTitle {
   padding-top: 2%;
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
@@ -76,6 +67,21 @@
   background-color: #8FF4F4;
   height: 100vh;
   min-height: 100vh;
+}
+
+.settingPage {
+  text-align: center;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #8FF4F4;
+}
+
+.scrollMenu
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
 }
 
 .homeTitle {
@@ -205,27 +211,6 @@
   font-size: 3rem;
 }
 
-
-.slide {
-  opacity: 0;
-  transition-duration: 1s ease;
-}
-
-.slide.active {
-  opacity: 1;
-  transition-duration: 1s;
-  transform: scale(1.08);
-}
-
-.title {
-  position: absolute;
-  top: 6%;
-  width: 80%;
-  text-align: center;
-  font-size: 2em;
-  font-family: 'Quicksand', sans-serif;
-}
-
 .rectangle {
   position: absolute;
   display: inline-block;
@@ -233,15 +218,17 @@
   height: 80px;
   background: darkgreen;
 }
-.text{
+.score-text{
    position: absolute;
    left: 40px;
    top: 36px;
    color: white;
-   font: italic small-caps bold 20px cursive;
+   font-family: 'Quicksand', sans-serif;
+   font-style: italic;
+   font-size: large;
 }
 
-.button{
+.startgame-button{
    position: absolute;
    left: 1180px;
    top: 40px;

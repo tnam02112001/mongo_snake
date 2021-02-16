@@ -9,7 +9,7 @@ function upgradesPage() {
         <Link to="/">
             <FaArrowCircleLeft className="home-button" />
         </Link>
-        <h1 className="mainText-upgrades">Upgrades</h1>
+        <h1 className="mainTitle">Upgrades</h1>
       </div>
     );
   }
