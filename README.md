@@ -1,9 +1,35 @@
-# Summary
-1. Redesigning the layout of the game to make it looks more consistent
-2. Linking the gameplay page that I implemented to the game
-3. Making the Skin Color and Speed Setting pages functional. This means that selecting a setting actually triggers a change in the gameplay, instead of doing nothing.
-4. For the setting pages, I used a third-party dependency called "react-horizontal-scrolling-menu". To install this dependency, simply run this command:
-5. The modified setting pages didnt have any images right now. I will try to fix this to make it looks better.
+# Mongo Snake
+Mongo Snake is a simple Snake Game developed by Nam Nguyen, Edward Du and Michael Greene
+
+## Style Guides
+Contributors to this project are encouraged to follow these following style guides:
+| Environement | Description |
+| --- | --- |
+| Python | [PEP8](https://www.python.org/dev/peps/pep-0008/) |
+| Javascript/React| [Airbnb JavaScript Style Guide](https://airbnb.io/javascript/react/) |
+
+### Setting up IDE plugins
+#### Integrating Python Style Checker into Visual Studio Code
+1. Install the [pycodestyle](https://pypi.org/project/pycodestyle/) package
+2. Install the pylint package and change the default linter to pycodesyle by following this [instruction](https://code.visualstudio.com/docs/python/linting)
+
+#### Integrating Automatic Javascript/React Code Formatter (Prettier) into Visual Studio Code 
+1. Install the Prettier dependency: 
+`npm install --save husky lint-staged prettier`
+2. Add the following field to the package.json section:
+```
++  "husky": {
++    "hooks": {
++      "pre-commit": "lint-staged"
++    }
++  }
+
++ "lint-staged": {
++   "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
++     "prettier --write"
++   ]
++ },
+```
 
 ### Required dependencies:
 1. `npm install react-bootstrap-validation --save`
