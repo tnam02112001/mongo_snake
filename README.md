@@ -9,4 +9,3 @@
 1. `npm install react-bootstrap-validation --save`
 2. `npm install bootstrap --save`
 3. `npm install --save react-horizontal-scrolling-menu`
-4. `npm install axios --save`
