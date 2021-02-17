@@ -5,231 +5,244 @@
 
 /* Leaderboard */
 .home-button {
-  font-size: 3rem;
-  float: left;
+    font-size: 3rem;
+    float: left;
 }
 
 .colNames {
-  font-family: 'Quicksand', sans-serif;
-  border: none !important;
-  padding: 0px !important;
+    font-family: 'Quicksand', sans-serif;
+    border: none !important;
+    padding: 0px !important;
 }
 
 .dataText {
-  font-family: 'Quicksand', sans-serif;
-  border: none !important;
-  padding: 0px !important;
-  max-width: 50%;
+    font-family: 'Quicksand', sans-serif;
+    border: none !important;
+    padding: 0px !important;
+    max-width: 50%;
 }
 
 .tablecss {
-  border-spacing: 0;
-  border-collapse: collapse;
-  font-size: 1.5em;
-  text-align: center;  
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 1.5em;
+    text-align: center;
 }
 
 .tableContainer {
-  margin-top: 2%;
-  margin-left: 10%;
-  margin-right: 10%;
-  border: 4px solid black;
-  border-radius: 15px;
-  max-width: 90%;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 4px solid black;
+    border-radius: 15px;
+    max-width: 90%;
 }
 
 .leaderboard-div {
-  text-align: center;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: #8FF4F4;
+    text-align: center;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: #8FF4F4;
 }
 
 /* Upgrades */
 .upgrades-div {
-  text-align: center;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: #8FF4F4;
+    text-align: center;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: #8FF4F4;
 }
 
 .mainTitle {
-  padding-top: 2%;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 3em;
-  width: 90%;
-  margin-left: 5%;
+    padding-top: 2%;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    width: 90%;
+    margin-left: 5%;
 }
 
 /* Homepage */
 .homePage {
-  background-color: #8FF4F4;
-  height: 100vh;
-  min-height: 100vh;
+    background-color: #8FF4F4;
+    height: 100vh;
+    min-height: 100vh;
 }
 
 .settingPage {
-  text-align: center;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: #8FF4F4;
+    text-align: center;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: #8FF4F4;
 }
 
-.scrollMenu
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
+.scrollMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
 }
 
 .homeTitle {
-  font-family: 'Quicksand', sans-serif;
-  text-align: center;
-  font-weight: bold;
-  font-size: 3em
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3em
 }
 
 .button-container {
-  position: relative;
-  padding-top: 2%;
-  height: 100vh;
+    position: relative;
+    padding-top: 2%;
+    height: 100vh;
 }
 
 .settings-button {
-  color: #000;
-  font-size: 4rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    color: #000;
+    font-size: 4rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .leaderboard-button {
-  color: #000;
-  font-size: 4rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+    color: #000;
+    font-size: 4rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .playContainer {
-  border: 4px solid black;
-  border-radius: 50px;
-  position: relative;
-  /* left: 25%;
-  right: 25%; */
-  height: 40%;
-  width: 40%;
-  margin: 0 auto;
-  margin-top: 5%;
-  text-align: center;
-  background: rgba(107, 123, 50, 0.5);
+    border: 4px solid black;
+    border-radius: 50px;
+    position: relative;
+    /* left: 25%;
+    right: 25%; */
+    height: 40%;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
+    background: rgba(107, 123, 50, 0.5);
 }
 
 .skins-button {
-  color: #000;
-  font-size: 4rem;
-  position: absolute;
-  top: 10%;
-  left: 10%;
+    color: #000;
+    font-size: 4rem;
+    position: absolute;
+    top: 10%;
+    left: 10%;
 }
 
 .gameplay-button {
-  color: #000;
-  font-size: 4rem;
-  position: absolute;
-  bottom: 10%;
-  left: 45%;
+    color: #000;
+    font-size: 4rem;
+    position: relative;
+    bottom: -75%;
 }
 
 .upgrades-button {
-  color: #000;
-  font-size: 4rem;
-  position: absolute;
-  top: 10%;
-  right: 10%;
+    color: #000;
+    font-size: 4rem;
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }
 
 .userInput {
-  position: absolute;
-  top: 35%;
-  left: 33%;
+    position: relative;
+    top: 20%;
 }
 
 .inputText {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 150%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 150%;
 }
 
 .inputBox {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 150%;
-  border-radius: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 150%;
+    border-radius: 15px;
 }
 
 
 .slider {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: #8FF4F4; */
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #8FF4F4; */
 }
 
 .image {
-  height: 600px;
-  border-radius: 10px;
+    height: 600px;
+    border-radius: 10px;
 }
 
 .right-arrow {
-  position: absolute;
-  top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: #000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    font-size: 3rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
 }
 
 .left-arrow {
-  position: absolute;
-  top: 50%;
-  left: 32px;
-  font-size: 3rem;
-  color: #000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    font-size: 3rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
 }
 
 .home-button {
-  color: #000;
-  /* position: fixed; */
-  font-size: 3rem;
+    color: #000;
+    /* position: fixed; */
+    font-size: 3rem;
 }
 
 .rectangle {
-  position: absolute;
-  display: inline-block;
-  width: 1280px;
-  height: 80px;
-  background: darkgreen;
-}
-.score-text{
-   position: absolute;
-   left: 40px;
-   top: 36px;
-   color: white;
-   font-family: 'Quicksand', sans-serif;
-   font-style: italic;
-   font-size: large;
+    position: absolute;
+    display: inline-block;
+    width: 1280px;
+    height: 80px;
+    background: darkgreen;
 }
 
-.startgame-button{
-   position: absolute;
-   left: 1180px;
-   top: 40px;
+.score-text {
+    position: absolute;
+    left: 40px;
+    top: 28px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    white-space: nowrap;
+}
+
+.startgame-button {
+    position: absolute;
+    left: 1125px;
+    top: 25px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    white-space: nowrap;
+}
+
+.game-over {
+    position: absolute;
+    text-align: center;
+    top: 23px;
+    left: 570px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: x-large;
+    white-space: nowrap;
 }

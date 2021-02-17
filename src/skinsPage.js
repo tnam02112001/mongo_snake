@@ -15,7 +15,6 @@ const list = [
     { name: 'red' },
     { name: 'yellow' },
     { name: 'white'}
-   
   ];
   
   
