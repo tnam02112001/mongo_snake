@@ -20,7 +20,7 @@ function Home() {
                     <FaCog className="settings-button" />
                 </Link>
                 <small></small><br />
-                <Link to="/leaderboards">
+                <Link to="/leaderboard">
                     <FaListOl className="leaderboard-button" />
                 </Link>
                 <div className="playContainer">

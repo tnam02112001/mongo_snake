@@ -16,7 +16,7 @@ function App() {
           <Route path="/skins" component={skinsPage} />
           <Route path="/settings" component={settingsPage} />
           <Route path ="/gameplay" component = {Gameplay} />
-          <Route path="/leaderboards" component={leaderboardPage} />
+          <Route path="/leaderboard" component={leaderboardPage} />
           <Route path="/upgrades" component={upgradesPage} />
         </Switch>
       </div>
