@@ -1,4 +1,4 @@
-# Mongo Snake ![Markdown](https://travis-ci.org/tnam02112001/mongo_snake.svg?branch=mongosnake_dev)
+# Mongo Snake ![Markdown](https://travis-ci.com/tnam02112001/mongo_snake.svg?branch=mongosnake_dev)
 Mongo Snake is a simple Snake Game developed by Nam Nguyen, Edward Du and Michael Greene
 
 ## Style Guides
