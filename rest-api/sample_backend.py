@@ -28,3 +28,7 @@ def access_leaderboard():
     if request.method == 'GET':
         leaders = Users().get_leaders()
         return {"leaderboard": leaders}
+
+def get_leaderboard():
+         leaders = Users().get_leaders()
+         return {"leaderboard": leaders}
