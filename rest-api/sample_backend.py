@@ -22,7 +22,6 @@ CORS(app)
 def hello_world():
     return 'Hello, World!'
 
-
 @app.route('/leaderboard', methods=['GET', 'POST'])
 def access_leaderboard():
     if request.method == 'GET':
