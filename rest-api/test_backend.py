@@ -1,11 +1,36 @@
 import pytest
-# import sys
-# import os
-# sys.path.append('/rest-api')
 import sample_backend
 
-def test_access_leaderboard():  
-   expected = {
+def test_get_topplayer():  
+  expected = {
+      "_id": "602cf1530fee0fa57f2ef5f7", 
+      "name": "Nam", 
+      "rank": "1", 
+      "score": 31223.0
+    }
+  assert sample_backend.get_topplayer() == expected
+
+def test_get_leaderboardwithlimit():
+  expected = {
+    "leaderboard": [
+    {
+      "_id": "602cf1530fee0fa57f2ef5f7", 
+      "name": "Nam", 
+      "rank": "1", 
+      "score": 31223.0
+    }, 
+    {
+      "_id": "602ce6890fee0fa57f2ef5f6", 
+      "name": "Michael", 
+      "rank": "2", 
+      "score": 29943.0
+    }, 
+]
+  }
+  assert sample_backend.get_leaderboardwithlimit(2) == expected
+
+def test_get_leaderboardwithlimit4():
+  expected = {
   "leaderboard": [
     {
       "_id": "602cf1530fee0fa57f2ef5f7", 
@@ -31,12 +56,11 @@ def test_access_leaderboard():
       "rank": "4", 
       "score": 19044
     }, 
-    {
-      "_id": "602d11ba6fc98b2990e2b684", 
-      "name": "Connected", 
-      "rank": "5", 
-      "score": 18464
-    }
-  ]
-}
-   assert sample_backend.get_leaderboard() == expected
+]
+  }
+  assert sample_backend.get_leaderboardwithlimit(4) == expected
+    
+
+
+
+
