@@ -17,7 +17,7 @@ def hello_world():
 @app.route('/leaderboard', methods=['GET', 'POST'])
 def access_leaderboard():
     if request.method == 'GET':
-        leaders = Users().get_leaderboard()
+        leaders = Users().get_leaderboard(10)
         return {"leaderboard": leaders}
     elif request.method == 'POST':
       userToAdd = request.get_json()
@@ -25,11 +25,3 @@ def access_leaderboard():
       newUser.save()
       resp = jsonify(newUser), 201
       return resp
-
-def get_topplayer():
-    topplayer = Users().get_topplayer()
-    return  topplayer
-
-def get_leaderboardwithlimit(n):
-    leaders = Users().get_leaderboardwithlimit(n)
-    return {"leaderboard": leaders}

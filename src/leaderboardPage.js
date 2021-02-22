@@ -6,11 +6,11 @@ import * as ReactBootstrap from 'react-bootstrap';
 import axios from 'axios';
 
 const leadersBackup = [
-    {rank: "1", name: "Nam", score: 31223},
-    {rank: "2", name: "Michael", score: 29943},
-    {rank: "3", name: "Edward", score: 27181},
-    {rank: "4", name: "Brett", score: 19044},
-    {rank: "5", name: "Disconnected", score: 19021},
+    {name: "Nam", score: 31223},
+    {name: "Michael", score: 29943},
+    {name: "Edward", score: 27181},
+    {name: "Brett", score: 19044},
+    {name: "Disconnected", score: 19021},
 ]
 
 const renderPlayer = (player, index) => {
@@ -41,7 +41,7 @@ class leaderboardPage extends Component {
 
     render() {
         const {leaders} = this.state
-        //leaders.sort((a, b) => (a.rank > b.rank) ? 1 : -1) // sorts leaders by rank since database entries cannot be swapped
+        leaders.sort((a, b) => (a.score < b.score) ? 1 : -1) // sorts leaders by rank since database entries cannot be swapped
 
         return (
             <div className="leaderboard-div">

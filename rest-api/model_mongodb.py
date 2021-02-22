@@ -38,18 +38,7 @@ class Users(Model):
     db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@cluster0.tzqe4.mongodb.net/")
     collection = db_client["users"]["leaderboard"]  # db name is 'users' and collection name is 'leaderboard'
 
-    def get_leaderboard(self):
-        leaders = list(self.collection.find().sort("score", pymongo.DESCENDING))
-        for leader in leaders:
-            leader["_id"] = str(leader["_id"])
-        return leaders
-    
-    def get_topplayer(self):
-        leaders = list(self.collection.find().sort("score", pymongo.DESCENDING).limit(1))
-        leaders[0]["_id"] = str(leaders[0]["_id"])
-        return leaders[0]
-    
-    def get_leaderboardwithlimit(self, n):
+    def get_leaderboard(self, n): # pass n as zero for no limit
         leaders = list(self.collection.find().sort("score", pymongo.DESCENDING).limit(n))
         for leader in leaders:
             leader["_id"] = str(leader["_id"])
