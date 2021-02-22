@@ -13,7 +13,7 @@ const DIRECTIONS = {
 };
 
 //Data of the setting. Will be modified
-const settings = {snakeColor: 'purple', difficulty: 'medium'};
+const settings = {playerName: "Player", snakeColor: 'purple', difficulty: 'medium'};
 const SPEED_CONSTANTS = {easy: 150, medium: 100, hard: 50};
 
 export {

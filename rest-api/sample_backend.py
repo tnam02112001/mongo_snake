@@ -27,6 +27,12 @@ def access_leaderboard():
     if request.method == 'GET':
         leaders = Users().get_leaders()
         return {"leaderboard": leaders}
+    elif request.method == 'POST':
+      userToAdd = request.get_json()
+      newUser = Users(userToAdd)
+      newUser.save()
+      resp = jsonify(newUser), 201
+      return resp
 
 def get_leaderboard():
          leaders = Users().get_leaders()

@@ -16,7 +16,7 @@ const leadersBackup = [
 const renderPlayer = (player, index) => {
     return (
         <tr key={index}>
-            <td>{player.rank}</td>
+            <td>{index + 1}</td>
             <td>{player.name}</td>
             <td>{player.score}</td>
         </tr>
@@ -24,7 +24,7 @@ const renderPlayer = (player, index) => {
 }
 
 class leaderboardPage extends Component {
-    state = {
+     state = {
         leaders: leadersBackup,
     }
 
@@ -41,7 +41,7 @@ class leaderboardPage extends Component {
 
     render() {
         const {leaders} = this.state
-        leaders.sort((a, b) => (a.rank > b.rank) ? 1 : -1) // sorts leaders by rank since database entries cannot be swapped
+        //leaders.sort((a, b) => (a.rank > b.rank) ? 1 : -1) // sorts leaders by rank since database entries cannot be swapped
 
         return (
             <div className="leaderboard-div">

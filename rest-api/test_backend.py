@@ -8,16 +8,16 @@ def test_access_leaderboard():
    expected = {
   "leaderboard": [
     {
-      "_id": "602ce6890fee0fa57f2ef5f6", 
-      "name": "Michael", 
-      "rank": "2", 
-      "score": 29943.0
-    }, 
-    {
       "_id": "602cf1530fee0fa57f2ef5f7", 
       "name": "Nam", 
       "rank": "1", 
       "score": 31223.0
+    }, 
+    {
+      "_id": "602ce6890fee0fa57f2ef5f6", 
+      "name": "Michael", 
+      "rank": "2", 
+      "score": 29943.0
     }, 
     {
       "_id": "602d118a6fc98b2990e2b682", 

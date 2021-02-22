@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect} from "react";
+import axios from 'axios'
 import {useInterval} from './useInterval'
 import './App.css'
 import {
@@ -11,6 +12,9 @@ import {
     settings
 } from './constants'
 
+
+
+
 const Gameplay = () => {
 
     const canvasRef = useRef()
@@ -21,6 +25,8 @@ const Gameplay = () => {
     const [dir, setDir] = useState([0, -1]);
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
+    
+   
 
     const startGame = () => {
         setScore(0);
@@ -30,9 +36,29 @@ const Gameplay = () => {
         setSpeed(gameSpeed);
         setGameOver(false);
     }
+
+
+    const writeLeaderboard = () =>
+    {
+        var playerToAdd = {
+            "name" : settings.playerName,
+            "score": score
+        }
+        return axios.post('http://localhost:5000/leaderboard', playerToAdd)
+        .then(function (response) {
+          console.log(response);
+          return response;
+        })
+        .catch(function (error) {
+          console.log(error);
+          return false;
+        });
+    }
+    
     const endGame = () => {
         setSpeed(null);
         setGameOver(true);
+        writeLeaderboard();
     }
     const moveSnake = ({keyCode}) => {
         if (keyCode < 37 || keyCode > 40)
@@ -92,9 +118,11 @@ const Gameplay = () => {
     useInterval(() => gameLoop(), speed);
 
     return (
+    
         <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
             <div className="rectangle"/>
-            <prev className="score-text"> SCORE: {score}</prev>
+            <div className="score-text"> SCORE: {score}</div>
+            <div className = "name-text"> Welcome, {settings.playerName}</div>
             <canvas
                 style={{backgroundColor: "lightgreen", position: "absolute", top: "80px"}}
                 ref={canvasRef}

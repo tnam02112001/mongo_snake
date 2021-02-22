@@ -39,7 +39,7 @@ class Users(Model):
     collection = db_client["users"]["leaderboard"]  # db name is 'users' and collection name is 'leaderboard'
 
     def get_leaders(self):
-        leaders = list(self.collection.find())
+        leaders = list(self.collection.find().sort("score", pymongo.DESCENDING))
         for leader in leaders:
             leader["_id"] = str(leader["_id"])
         return leaders

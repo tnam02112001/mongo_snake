@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import { FaPalette } from 'react-icons/fa';
 import { FaPlayCircle, FaListOl, FaHourglassStart } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Form from './Form'
+import {settings} from './constants'
 
 
-function Home() {
-    return (
+class Home extends Component {
+    handleSubmit = name =>{
+        settings['playerName'] = name["name"]
+    };
+
+    render(){
+        return (
         <div className="homePage">
             {/* style={{backgroundColor: '#8FF4F4', width : '100vh', height : '720px', position: 'absolute', top: '0px'}} */}
             {/* <small style = {{display: 'flex', textAlign: 'center'}}>Skins</small> <br /> */}
@@ -28,22 +35,23 @@ function Home() {
                         <FaPalette className="skins-button" />
                     </Link>
 
-                    {/* <small>Play</small> <br /> */}
-                    <Link to="/gameplay">
+                    {/* The form already included the gameplay button */}
+                    {/* <Link to="/gameplay">
                         <FaPlayCircle className="gameplay-button" />
-                    </Link>
+                    </Link> */}
 
                     <Link to="/upgrades">
                         <FaHourglassStart className="upgrades-button" />
                     </Link>
-                    <form className="userInput">
-                        <label for="Username" className="inputText"></label><br />
-                        <input type="text" id="Username" name="Username" placeholder="Username" className="inputBox"></input>
-                    </form>
+
+                    <Form handleSubmit = {this.handleSubmit}/>
+                    
                 </div>
             </div>
         </div>
     );
+    }
 }
+    
 
 export default Home;

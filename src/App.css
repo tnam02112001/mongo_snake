@@ -226,6 +226,16 @@
     white-space: nowrap;
 }
 
+.name-text {
+    position: absolute;
+    left: 800px;
+    top: 25px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    white-space: nowrap;
+}
+
 .startgame-button {
     position: absolute;
     left: 1125px;
