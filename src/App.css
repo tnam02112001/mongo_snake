@@ -138,7 +138,7 @@
     color: #000;
     font-size: 4rem;
     position: relative;
-    bottom: -75%;
+    top: 60px;
 }
 
 .upgrades-button {
@@ -150,8 +150,9 @@
 }
 
 .userInput {
-    position: relative;
-    top: 20%;
+    position: absolute;
+    top: 45%;
+    width: 100%;
 }
 
 .inputText {
