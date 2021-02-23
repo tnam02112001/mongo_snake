@@ -8,4 +8,4 @@ install:
 # command to run tests
 script:
   - coverage run -m pytest -W ignore::DeprecationWarning
-  - coverage report -m
+  - coverage report -m --omit=/home/travis/virtualenv/
