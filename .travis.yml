@@ -7,5 +7,5 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - coverage run pytest -W ignore::DeprecationWarning
+  - coverage run -m pytest -W ignore::DeprecationWarning
   - coverage report -m
