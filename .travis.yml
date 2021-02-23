@@ -25,7 +25,8 @@ jobs:
       install: 
         - npm install react-bootstrap-validation --save
         - npm install bootstrap --save
-        - npm install --save react-horizontal-scrolling-menu
+        - npm install react-bootstrap --save
+        - npm install react-horizontal-scrolling-menu --save
         - npm install axios --save
       script:
         - npm test
