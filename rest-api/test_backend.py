@@ -1,6 +1,5 @@
 import pytest
 from sample_backend import app
-import requests
 
 def test_get_leaderboard():
   resp = app.test_client().get('/leaderboard')
