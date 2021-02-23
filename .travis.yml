@@ -2,10 +2,20 @@
 language: python
 python:
   - "3.6"      # current default Python on Travis CI
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+
 # command to run tests
 script:
   - coverage run -m pytest -W ignore::DeprecationWarning
-  - coverage report --include="./rest-api/*"
+  - coverage report --include="./rest-api/"
+
+after_success:
+  deploy:
+    provider: heroku
+    api_key:
+      secure: 45b821de-e8c6-4129-a432-fab067b78bba
+      
+  
