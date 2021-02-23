@@ -13,8 +13,6 @@ import {
 } from './constants'
 
 
-
-
 const Gameplay = () => {
 
     const canvasRef = useRef()

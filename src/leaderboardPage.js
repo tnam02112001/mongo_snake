@@ -41,8 +41,6 @@ class leaderboardPage extends Component {
 
     render() {
         const {leaders} = this.state
-        leaders.sort((a, b) => (a.score < b.score) ? 1 : -1) // sorts leaders by rank since database entries cannot be swapped
-
         return (
             <div className="leaderboard-div">
                 <Link to="/">

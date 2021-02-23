@@ -1,66 +1,48 @@
 import pytest
-import sample_backend
+from sample_backend import app
+import requests
 
-def test_get_topplayer():  
-  expected = {
-      "_id": "602cf1530fee0fa57f2ef5f7", 
-      "name": "Nam", 
-      "rank": "1", 
-      "score": 31223.0
-    }
-  assert sample_backend.get_topplayer() == expected
-
-def test_get_leaderboardwithlimit():
-  expected = {
-    "leaderboard": [
+def test_get_leaderboard():
+  resp = app.test_client().get('/leaderboard')
+  expected = [
     {
       "_id": "602cf1530fee0fa57f2ef5f7", 
       "name": "Nam", 
-      "rank": "1", 
       "score": 31223.0
     }, 
     {
       "_id": "602ce6890fee0fa57f2ef5f6", 
       "name": "Michael", 
-      "rank": "2", 
-      "score": 29943.0
-    }, 
-]
-  }
-  assert sample_backend.get_leaderboardwithlimit(2) == expected
-
-def test_get_leaderboardwithlimit4():
-  expected = {
-  "leaderboard": [
-    {
-      "_id": "602cf1530fee0fa57f2ef5f7", 
-      "name": "Nam", 
-      "rank": "1", 
-      "score": 31223.0
-    }, 
-    {
-      "_id": "602ce6890fee0fa57f2ef5f6", 
-      "name": "Michael", 
-      "rank": "2", 
       "score": 29943.0
     }, 
     {
       "_id": "602d118a6fc98b2990e2b682", 
       "name": "Edward", 
-      "rank": "3", 
       "score": 27181
     }, 
     {
       "_id": "602d11996fc98b2990e2b683", 
       "name": "Brett", 
-      "rank": "4", 
       "score": 19044
     }, 
-]
+  ]
+
+  assert resp.status_code == 200
+  assert expected == resp.get_json()["leaderboard"][:4]
+
+def test_post_delete_leaderboard():
+  # Test POST request
+  data = {
+    "name": "UnitTest",
+    "score": 0
   }
-  assert sample_backend.get_leaderboardwithlimit(4) == expected
-    
+  resp = app.test_client().post('/leaderboard', json = data)
+  return_data = resp.get_json()
+  assert resp.status_code == 201
+  assert return_data["name"] == data["name"]
+  assert return_data["score"] == data["score"]
 
-
-
+  #Test DELETE request, DELETE a newly-created data to preserve the old content of the database
+  resp = app.test_client().delete('/leaderboard', json = return_data)
+  assert resp.status_code == 200
 
