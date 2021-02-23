@@ -15,15 +15,18 @@ jobs:
     # command to run tests
       script:
         - coverage run -m pytest -W ignore::DeprecationWarning
-        - coverage report --include="./rest-api/"
+        - coverage report --include="./rest-api/*"
 
     - language: node_js
       node_js: 12
       before_install:
         - npm i -g npm@6.14.10
       cache: npm
-      install:
-        - npm ci
+      install: 
+        - npm install react-bootstrap-validation --save
+        - npm install bootstrap --save
+        - npm install --save react-horizontal-scrolling-menu
+        - npm install axios --save
       script:
         - npm test
 
