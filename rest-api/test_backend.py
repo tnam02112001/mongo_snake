@@ -24,15 +24,10 @@ def test_get_leaderboard():
         "name": "Edward",
         "score": 27181
       },
-      {
-        "_id": "602d11996fc98b2990e2b683",
-        "name": "Brett",
-        "score": 19044
-      },
     ]
 
     assert resp.status_code == 200
-    assert expected == resp.get_json()["leaderboard"][:4]
+    assert expected == resp.get_json()["leaderboard"][:3]
 
 def test_post_delete_leaderboard():
     """
@@ -53,3 +48,4 @@ def test_post_delete_leaderboard():
     #Test DELETE request, DELETE a newly-created data to preserve the old content of the database
     resp = app.test_client().delete('/leaderboard', json = return_data)
     assert resp.status_code == 200
+    

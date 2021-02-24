@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import { FaPlayCircle, FaListOl, FaHourglassStart } from 'react-icons/fa';
+import { FaPlayCircle} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 class Form extends Component {
    initialState = {
-     name: '',
+     name: "Player",
    }
  
    state = this.initialState
@@ -35,12 +35,9 @@ class Form extends Component {
           <big></big> <br />
           <Link to="/gameplay">
                <FaPlayCircle className="gameplay-button" onClick = {this.submitForm} />
-         </Link>
-       
-         
+         </Link>  
       </form>
     );
   }
  }
-  
-  export default Form;
+export default Form;

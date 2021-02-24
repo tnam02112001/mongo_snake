@@ -18,7 +18,7 @@ def access_leaderboard():
     Returns:
         resp: a response HTML object including status code and body data
     """
-    resp = jsonify(success=False), 400
+    resp = "Invalid Request", 400
     if request.method == 'GET':
         leaders = Users().get_leaderboard(10)
         resp = {"leaderboard": leaders}, 200
