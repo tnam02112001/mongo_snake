@@ -5,7 +5,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Gameplay from './gameplay';
 import leaderboardPage from './leaderboardPage';
-import upgradesPage from './upgrades';
+import upgradesPage from './upgradesPage';
  
 function App() {
   return (

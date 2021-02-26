@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import { FaPalette } from 'react-icons/fa';
-import { FaPlayCircle, FaListOl, FaHourglassStart } from 'react-icons/fa';
+import { FaPlayCircle, FaListOl, FaStar } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Form from './Form'
@@ -41,7 +41,7 @@ class Home extends Component {
                     </Link> */}
 
                     <Link to="/upgrades">
-                        <FaHourglassStart className="upgrades-button" />
+                        <FaStar className="upgrades-button" />
                     </Link>
 
                     <Form handleSubmit = {this.handleSubmit}/>

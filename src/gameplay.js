@@ -9,6 +9,7 @@ import {
     DIRECTIONS,
     APPLE_START,
     SPEED_CONSTANTS,
+    TONGUE_CONSTANTS,
     settings
 } from './constants'
 
@@ -23,8 +24,7 @@ const Gameplay = () => {
     const [dir, setDir] = useState([0, -1]);
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
-    
-   
+
 
     const startGame = () => {
         setScore(0);
@@ -36,31 +36,33 @@ const Gameplay = () => {
     }
 
 
-    const writeLeaderboard = () =>
-    {
+    const writeLeaderboard = () => {
         var playerToAdd = {
-            "name" : settings.playerName,
+            "name": settings.playerName,
             "score": score
         }
         return axios.post('http://localhost:5000/leaderboard', playerToAdd)
-        .then(function (response) {
-          console.log(response);
-          return response;
-        })
-        .catch(function (error) {
-          console.log(error);
-          return false;
-        });
+            .then(function (response) {
+                console.log(response);
+                return response;
+            })
+            .catch(function (error) {
+                console.log(error);
+                return false;
+            });
     }
-    
+
     const endGame = () => {
         setSpeed(null);
         setGameOver(true);
         writeLeaderboard();
     }
     const moveSnake = ({keyCode}) => {
-        if (keyCode < 37 || keyCode > 40)
+        if (keyCode == 13)
+            startGame()
+        if (gameOver || keyCode < 37 || keyCode > 40)
             return
+        gameLoop()
         const newDir = DIRECTIONS[keyCode]
         if (Math.abs(newDir[0]) == Math.abs(dir[0]) || Math.abs(newDir[1]) == Math.abs(dir[1]))
             return
@@ -83,14 +85,18 @@ const Gameplay = () => {
         return false;
     }
     const checkAppleCollision = newSnake => {
-        if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) {
-            let newApple = createApple();
-            while (checkCollision(newApple, newSnake)) {
-                newApple = createApple();
+        for (let i = 0; i <= TONGUE_CONSTANTS[settings["tongueLength"]]; i++) {
+            if ((newSnake[0][0] + (dir[0] * i) === apple[0] && newSnake[0][1] + (dir[1] * i) === apple[1]) ||
+                (newSnake[0][0] + (dir[1] * i) === apple[0] && newSnake[0][1] + (dir[0] * i) === apple[1]) ||
+                (newSnake[0][0] + (dir[1] * i * -1) === apple[0] && newSnake[0][1] + (dir[0] * i * -1) === apple[1])) {
+                let newApple = createApple();
+                while (checkCollision(newApple, newSnake)) {
+                    newApple = createApple();
+                }
+                setApple(newApple);
+                setScore(score + 1500 / gameSpeed);
+                return true;
             }
-            setApple(newApple);
-            setScore(score + 1500 / gameSpeed);
-            return true;
         }
         return false;
     }
@@ -116,11 +122,10 @@ const Gameplay = () => {
     useInterval(() => gameLoop(), speed);
 
     return (
-    
         <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
             <div className="rectangle"/>
             <div className="score-text"> SCORE: {score}</div>
-            <div className = "name-text"> Welcome, {settings.playerName}</div>
+            <div className="name-text"> Welcome, {settings.playerName}</div>
             <canvas
                 style={{backgroundColor: "lightgreen", position: "absolute", top: "80px"}}
                 ref={canvasRef}
