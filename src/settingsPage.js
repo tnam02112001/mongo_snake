@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ImageSlider from './components/ImageSlider';
-import { Difficulties } from './components/Difficulties';
 import { Link } from 'react-router-dom';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import './App.css';
@@ -61,29 +59,20 @@ class settingsPage extends Component {
         settings['difficulty'] = key;
       }
       render() {
-        const { selected } = this.state;
-        // Create menu from items
         const menu = this.menuItems;
     
     return (
-        <div style={{backgroundColor: '#8FF4F4', width : '1280px', height : '720px', position: 'absolute', top: '0px'}}>
+        <div className = 'settingPage'>
             <Link to="/">
                 <FaArrowCircleLeft className="home-button" />
             </Link>
-            <h3 className='title'>Choose your difficulty</h3>
-            <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "400px"
-                }}
-            >
+            <h1 className='mainTitle'>Choose your difficulty</h1>
+            <div className = 'scrollMenu'>
                 <ScrollMenu
                 data={menu}
                 arrowLeft={ArrowLeft}
                 arrowRight={ArrowRight}
-                selected={selected}
+                selected={settings['difficulty']}
                 onSelect={this.onSelect}
         /></div>
         </div>

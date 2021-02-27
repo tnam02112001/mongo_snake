@@ -12,11 +12,13 @@ code {
     monospace;
 }
 .menu-item {
+  font-family: 'Quicksand', sans-serif;
   padding: 0 40px;
   margin: 5px 10px;
   user-select: none;
   cursor: pointer;
   border: none;
+  font-size: 1.5rem;
 }
 .menu-item-wrapper.active {
   border: 1px blue solid;
