@@ -35,8 +35,7 @@ class Users(Model):
     """
     Class Users provide functions to access the leaderboard
     """
-    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@" \
-        "cluster0.tzqe4.mongodb.net/")
+    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@cluster0.tzqe4.mongodb.net/")
     collection = db_client["users"]["leaderboard"]
 
     def get_leaderboard(self, num_limit):

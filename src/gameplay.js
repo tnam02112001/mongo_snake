@@ -2,6 +2,9 @@ import React, {useState, useRef, useEffect} from "react";
 import axios from 'axios'
 import {useInterval} from './useInterval'
 import './App.css'
+import { Link } from 'react-router-dom';
+import { FaArrowCircleLeft } from 'react-icons/fa';
+
 import {
     CANVAS_SIZE,
     SNAKE_START,
@@ -120,20 +123,27 @@ const Gameplay = () => {
     useInterval(() => gameLoop(), speed);
 
     return (
-        <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-            <div className="rectangle"/>
-            <div className="score-text"> SCORE: {score}</div>
-            <div className="name-text"> Welcome, {settings.playerName}</div>
-            <canvas
-                style={{backgroundColor: "lightgreen", position: "absolute", top: "80px"}}
-                ref={canvasRef}
-                width={`${CANVAS_SIZE[0]}px`}
-                height={`${CANVAS_SIZE[1]}px`}
-            />
-            {gameOver &&
-            <dif className="game-over">GAME OVER!</dif>}
-            <div className="startgame-button">
-                <button onClick={startGame}>Start Playing</button>
+        <div>
+            <Link to="/">
+                <FaArrowCircleLeft className="home-button" />
+            </Link>
+            <div className="gameplay-div">
+                <div role="button" tabIndex="0" className="game-screen" onKeyDown={e => moveSnake(e)}>
+                    <div className="rectangle"/>
+                    <div className="score-text"> SCORE: {score}</div>
+                    <div className="name-text"> Welcome, {settings.playerName}</div>
+                    <canvas
+                        style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
+                        ref={canvasRef}
+                        width={`${CANVAS_SIZE[0]}px`}
+                        height={`${CANVAS_SIZE[1]}px`}
+                    />
+                    {gameOver &&
+                    <dif className="game-over">GAME OVER!</dif>}
+                    <div className="startgame-button">
+                        <button onClick={startGame}>Start Playing</button>
+                    </div>
+                </div>
             </div>
         </div>)
 }

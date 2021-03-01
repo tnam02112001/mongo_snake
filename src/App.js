@@ -2,6 +2,7 @@ import './App.css';
 import skinsPage from './skinsPage';
 import settingsPage from './settingsPage';
 import Home from './Home';
+import testPage from './testPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Gameplay from './gameplay';
 import leaderboardPage from './leaderboardPage';
@@ -18,6 +19,7 @@ function App() {
           <Route path ="/gameplay" component = {Gameplay} />
           <Route path="/leaderboard" component={leaderboardPage} />
           <Route path="/upgrades" component={upgradesPage} />
+          <Route path="/tests" component={testPage} />
         </Switch>
       </div>
     </Router>
