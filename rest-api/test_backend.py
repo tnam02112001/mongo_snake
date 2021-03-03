@@ -9,25 +9,19 @@ def test_get_leaderboard():
     """
     resp = app.test_client().get('/leaderboard')
     expected = [
-      {
-        "_id": "602cf1530fee0fa57f2ef5f7",
-        "name": "Nam",
-        "score": 31223.0
+      {"_id":"6038bd1d8c8f5ed5662b2032",
+      "name":"longboi",
+      "score":1080
       },
-      {
-        "_id": "602ce6890fee0fa57f2ef5f6",
-        "name": "Michael",
-        "score": 29943.0
-      },
-      {
-        "_id": "602d118a6fc98b2990e2b682",
-        "name": "Edward",
-        "score": 27181
-      },
+
+      {"_id":"6039800ba74067aad828ed08",
+      "name":"eddy",
+      "score":405
+      }  
     ]
 
     assert resp.status_code == 200
-    assert expected == resp.get_json()["leaderboard"][:3]
+    assert expected == resp.get_json()["leaderboard"][:2]
 
 def test_post_delete_leaderboard():
     """

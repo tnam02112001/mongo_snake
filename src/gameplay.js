@@ -2,6 +2,9 @@ import React, {useState, useRef, useEffect} from "react";
 import axios from 'axios'
 import {useInterval} from './useInterval'
 import './App.css'
+import { Link } from 'react-router-dom';
+import { FaArrowCircleLeft } from 'react-icons/fa';
+
 import {
     CANVAS_SIZE,
     SNAKE_START,
@@ -9,6 +12,7 @@ import {
     DIRECTIONS,
     APPLE_START,
     SPEED_CONSTANTS,
+    TONGUE_CONSTANTS,
     settings
 } from './constants'
 
@@ -23,8 +27,7 @@ const Gameplay = () => {
     const [dir, setDir] = useState([0, -1]);
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
-    
-   
+
 
     const startGame = () => {
         setScore(0);
@@ -36,31 +39,31 @@ const Gameplay = () => {
     }
 
 
-    const writeLeaderboard = () =>
-    {
+    const writeLeaderboard = () => {
         var playerToAdd = {
-            "name" : settings.playerName,
+            "name": settings.playerName,
             "score": score
         }
         return axios.post('http://localhost:5000/leaderboard', playerToAdd)
-        .then(function (response) {
-          console.log(response);
-          return response;
-        })
-        .catch(function (error) {
-          console.log(error);
-          return false;
-        });
+            .then(function (response) {
+                console.log(response);
+                return response;
+            })
+            .catch(function (error) {
+                console.log(error);
+                return false;
+            });
     }
-    
+
     const endGame = () => {
         setSpeed(null);
         setGameOver(true);
         writeLeaderboard();
     }
     const moveSnake = ({keyCode}) => {
-        if (keyCode < 37 || keyCode > 40)
+        if (gameOver || keyCode < 37 || keyCode > 40)
             return
+        gameLoop()
         const newDir = DIRECTIONS[keyCode]
         if (Math.abs(newDir[0]) == Math.abs(dir[0]) || Math.abs(newDir[1]) == Math.abs(dir[1]))
             return
@@ -71,10 +74,10 @@ const Gameplay = () => {
 
     const checkCollision = (piece, s = snake) => {
         if (
-            (piece[0] + 1) * SCALE >= CANVAS_SIZE[0] ||
-            piece[0] <= 0 ||
-            (piece[1] + 1) * SCALE >= CANVAS_SIZE[1] ||
-            piece[1] <= 0
+            (piece[0] + 1) * SCALE > CANVAS_SIZE[0] ||
+            piece[0] < 0 ||
+            (piece[1] + 1) * SCALE > CANVAS_SIZE[1] ||
+            piece[1] < 0
         )
             return true;
         for (const segment of s) {
@@ -83,14 +86,18 @@ const Gameplay = () => {
         return false;
     }
     const checkAppleCollision = newSnake => {
-        if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) {
-            let newApple = createApple();
-            while (checkCollision(newApple, newSnake)) {
-                newApple = createApple();
+        for (let i = 0; i <= TONGUE_CONSTANTS[settings["tongueLength"]]; i++) {
+            if ((newSnake[0][0] + (dir[0] * i) === apple[0] && newSnake[0][1] + (dir[1] * i) === apple[1]) ||
+                (newSnake[0][0] + (dir[1] * i) === apple[0] && newSnake[0][1] + (dir[0] * i) === apple[1]) ||
+                (newSnake[0][0] + (dir[1] * i * -1) === apple[0] && newSnake[0][1] + (dir[0] * i * -1) === apple[1])) {
+                let newApple = createApple();
+                while (checkCollision(newApple, newSnake)) {
+                    newApple = createApple();
+                }
+                setApple(newApple);
+                setScore(score + 1500 / gameSpeed);
+                return true;
             }
-            setApple(newApple);
-            setScore(score + 1500 / gameSpeed);
-            return true;
         }
         return false;
     }
@@ -116,21 +123,27 @@ const Gameplay = () => {
     useInterval(() => gameLoop(), speed);
 
     return (
-    
-        <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-            <div className="rectangle"/>
-            <div className="score-text"> SCORE: {score}</div>
-            <div className = "name-text"> Welcome, {settings.playerName}</div>
-            <canvas
-                style={{backgroundColor: "lightgreen", position: "absolute", top: "80px"}}
-                ref={canvasRef}
-                width={`${CANVAS_SIZE[0]}px`}
-                height={`${CANVAS_SIZE[1]}px`}
-            />
-            {gameOver &&
-            <dif className="game-over">GAME OVER!</dif>}
-            <div className="startgame-button">
-                <button onClick={startGame}>Start Playing</button>
+        <div>
+            <Link to="/">
+                <FaArrowCircleLeft className="home-button" />
+            </Link>
+            <div className="gameplay-div">
+                <div role="button" tabIndex="0" className="game-screen" onKeyDown={e => moveSnake(e)}>
+                    <div className="rectangle"/>
+                    <div className="score-text"> SCORE: {score}</div>
+                    <div className="name-text"> Welcome, {settings.playerName}</div>
+                    <canvas
+                        style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
+                        ref={canvasRef}
+                        width={`${CANVAS_SIZE[0]}px`}
+                        height={`${CANVAS_SIZE[1]}px`}
+                    />
+                    {gameOver &&
+                    <dif className="game-over">GAME OVER!</dif>}
+                    <div className="startgame-button">
+                        <button onClick={startGame}>Start Playing</button>
+                    </div>
+                </div>
             </div>
         </div>)
 }
