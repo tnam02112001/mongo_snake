@@ -7,7 +7,6 @@ class Form extends Component {
     initialState = {
         name: settings["playerName"],
     }
-
     state = this.initialState
     handleChange = event => {
 
@@ -23,7 +22,6 @@ class Form extends Component {
         this.props.handleSubmit(this.state)
         this.setState(this.initialState)
     }
-
     render() {
         const {name} = this.state;
         return (
@@ -47,5 +45,4 @@ class Form extends Component {
         );
     }
 }
-
 export default Form;
