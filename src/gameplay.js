@@ -61,6 +61,8 @@ const Gameplay = () => {
         writeLeaderboard();
     }
     const moveSnake = ({keyCode}) => {
+        if (keyCode == 13)
+            startGame()
         if (gameOver || keyCode < 37 || keyCode > 40)
             return
         gameLoop()
@@ -74,10 +76,10 @@ const Gameplay = () => {
 
     const checkCollision = (piece, s = snake) => {
         if (
-            (piece[0] + 1) * SCALE > CANVAS_SIZE[0] ||
-            piece[0] < 0 ||
-            (piece[1] + 1) * SCALE > CANVAS_SIZE[1] ||
-            piece[1] < 0
+            (piece[0] + 1) * SCALE >= CANVAS_SIZE[0] ||
+            piece[0] <= 0 ||
+            (piece[1] + 1) * SCALE >= CANVAS_SIZE[1] ||
+            piece[1] <= 0
         )
             return true;
         for (const segment of s) {

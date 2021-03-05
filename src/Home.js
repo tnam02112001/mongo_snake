@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
 import { FaPalette } from 'react-icons/fa';
+<<<<<<< HEAD
 import { FaListOl, FaStar } from 'react-icons/fa';
+=======
+import { FaPlayCircle, FaListOl, FaStar } from 'react-icons/fa';
+>>>>>>> origin/edward_backup
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Form from './Form'
@@ -54,5 +58,9 @@ class Home extends Component {
     );
     }
 }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/edward_backup
 
 export default Home;

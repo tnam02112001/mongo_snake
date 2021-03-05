@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/rest-api/venv
 
 # testing
 /coverage
@@ -12,6 +13,8 @@
 /build
 /.idea
 /rest-api/.idea
+/rest-api/node_modules
+/rest-api/venv
 
 # misc
 .DS_Store

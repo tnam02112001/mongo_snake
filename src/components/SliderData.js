@@ -1,0 +1,22 @@
+export const SliderData = [
+    {
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Blue_Square.svg/781px-Blue_Square.svg.png'
+    },
+    {
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Green_square.svg/1200px-Green_square.svg.png'
+    },
+    {
+      image:
+        'https://images-na.ssl-images-amazon.com/images/I/01fnVfMakPL.png'
+    },
+    {
+      image:
+        'https://i.imgur.com/PFUOuGB.png'
+    },
+    {
+      image:
+        'https://www.americasfinestlabels.com/images/CCS400PL.jpg'
+    }
+  ];
