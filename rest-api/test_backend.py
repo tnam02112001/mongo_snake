@@ -3,6 +3,39 @@ Unit Tests for the functionality of the Backend Model
 """
 from sample_backend import app
 
+def test_post_leaderboard():
+    """
+    Test the functionality of the POST request for 
+    erroneous data such as negative scores or invalid names
+    """
+
+    # Initial test data to POST
+    data1 = {
+      "name": "",
+      "score": 1000000000
+    }
+    data2 = {
+      "name": "Player2",
+      "score": -4562
+    }
+    data3 = {
+      "name": "",
+      "score": -34
+    }
+
+    #Test POST request
+    resp = app.test_client().post('/leaderboard', json = data1)
+    assert resp.status_code == 412
+    assert resp.get_json() == {"error": "Invalid data"}
+
+    resp = app.test_client().post('/leaderboard', json = data2)
+    assert resp.status_code == 412
+    assert resp.get_json() == {"error": "Invalid data"}
+
+    resp = app.test_client().post('/leaderboard', json = data3)
+    assert resp.status_code == 412
+    assert resp.get_json() == {"error": "Invalid data"}
+
 def test_post_delete_leaderboard():
     """
     Test the functionality of the POST and DELETE request
@@ -23,9 +56,9 @@ def test_post_delete_leaderboard():
     resp = app.test_client().delete('/leaderboard', json = return_data)
     assert resp.status_code == 200
 
-def test_post_get_delete_leaderboard():
+def test_all_requests_leaderboard_a():
     """
-    Test the functionality of the POST, GET and DELETE request
+    Test the basic functionality of the POST, GET and DELETE request
     """
 
     # Initial test data to POST
@@ -68,3 +101,7 @@ def test_post_get_delete_leaderboard():
     assert resp.status_code == 200
     resp = app.test_client().delete('/leaderboard', json = return_data3)
     assert resp.status_code == 200
+
+
+
+    

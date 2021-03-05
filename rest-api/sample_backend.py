@@ -18,15 +18,18 @@ def access_leaderboard():
     Returns:
         resp: a response HTML object including status code and body data
     """
-    resp = "Invalid Request", 400
+    resp = jsonify({"error": "Invalid request"}), 400
     if request.method == 'GET':
         leaders = Users().get_leaderboard(10)
         resp = {"leaderboard": leaders}, 200
     if request.method == 'POST':
         user_to_add = request.get_json()
-        new_user = Users(user_to_add)
-        new_user.save()
-        resp = jsonify(new_user), 201
+        if (user_to_add["name"] == "" or user_to_add["score"] < 0):
+            resp = jsonify({"error": "Invalid data"}), 412
+        else:
+            new_user = Users(user_to_add)
+            new_user.save()
+            resp = jsonify(new_user), 201
     if request.method == 'DELETE':
         user_to_remove = request.get_json()
         user = Users({"_id": user_to_remove["_id"]})
