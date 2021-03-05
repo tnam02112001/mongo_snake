@@ -76,10 +76,10 @@ const Gameplay = () => {
 
     const checkCollision = (piece, s = snake) => {
         if (
-            (piece[0] + 1) * SCALE >= CANVAS_SIZE[0] ||
-            piece[0] <= 0 ||
-            (piece[1] + 1) * SCALE >= CANVAS_SIZE[1] ||
-            piece[1] <= 0
+            (piece[0] + 1) * SCALE > CANVAS_SIZE[0] ||
+            piece[0] < 0 ||
+            (piece[1] + 1) * SCALE > CANVAS_SIZE[1] ||
+            piece[1] < 0
         )
             return true;
         for (const segment of s) {
@@ -134,7 +134,11 @@ const Gameplay = () => {
                     <div className="rectangle"/>
                     <div className="score-text"> SCORE: {score}</div>
                     <div className="name-text"> Welcome, {settings.playerName}</div>
+<<<<<<< HEAD
                     <canvas
+=======
+                    <canvas 
+>>>>>>> origin/nam_codereview
                         style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
                         ref={canvasRef}
                         width={`${CANVAS_SIZE[0]}px`}

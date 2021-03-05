@@ -35,8 +35,7 @@ class Users(Model):
     """
     Class Users provide functions to access the leaderboard
     """
-    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@" \
-        "cluster0.tzqe4.mongodb.net/")
+    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@cluster0.tzqe4.mongodb.net/")
     collection = db_client["users"]["leaderboard"]
 
     def get_leaderboard(self, num_limit):
@@ -48,6 +47,7 @@ class Users(Model):
         Returns:
             (list): A list of [num_limit] JSON entries sorted by descending score
         """
+
         leaders = list(self.collection.find().sort("score", pymongo.DESCENDING).limit(num_limit))
         for leader in leaders:
             leader["_id"] = str(leader["_id"])

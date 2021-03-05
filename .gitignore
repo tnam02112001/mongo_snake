@@ -15,6 +15,7 @@
 /rest-api/.idea
 /rest-api/node_modules
 /rest-api/venv
+/rest-api/__pycache__/
 
 # misc
 .DS_Store

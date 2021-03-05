@@ -7,18 +7,14 @@ jobs:
   include:
     - language: python
       python:  3.6      
-
-    # command to install dependencies
       install:
       - pip install -r requirements.txt
-
-    # command to run tests
       script:
         - coverage run -m pytest -W ignore::DeprecationWarning
         - coverage report --include="./rest-api/*"
 
     - language: node_js
-      node_js: 12
+      node_js: node
       before_install:
         - npm i -g npm@6.14.10
       install: 
@@ -27,6 +23,8 @@ jobs:
         - npm install react-bootstrap --save
         - npm install react-horizontal-scrolling-menu --save
         - npm install axios --save
+        - npm install enzyme --save
+        - npm install enzyme-adapter-react-16 --save
       cache: npm
       script:
         - npm test
