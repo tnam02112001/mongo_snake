@@ -134,11 +134,7 @@ const Gameplay = () => {
                     <div className="rectangle"/>
                     <div className="score-text"> SCORE: {score}</div>
                     <div className="name-text"> Welcome, {settings.playerName}</div>
-<<<<<<< HEAD
-                    <canvas
-=======
                     <canvas 
->>>>>>> origin/nam_codereview
                         style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
                         ref={canvasRef}
                         width={`${CANVAS_SIZE[0]}px`}
