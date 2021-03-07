@@ -18,7 +18,7 @@ class Model(dict):
         A function handling POST request that saves
         a player to the leaderboard database
         """
-        self.collection.insert(self)
+        self.collection.insert_one(self)
         self._id = str(self._id)
 
     def remove(self):
@@ -26,7 +26,7 @@ class Model(dict):
         A function handling DELETE request that delete
         a player to the leaderboard database
         """
-        resp = self.collection.remove({"_id": ObjectId(self._id)})
+        resp = self.collection.delete_one({"_id": ObjectId(self._id)})
         self.clear()
         return resp
 
@@ -35,7 +35,8 @@ class Users(Model):
     """
     Class Users provide functions to access the leaderboard
     """
-    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE@cluster0.tzqe4.mongodb.net/")
+    db_client = pymongo.MongoClient("mongodb+srv://user:USFkJD4WhXjKdYOE" \
+        "@cluster0.tzqe4.mongodb.net/")
     collection = db_client["users"]["leaderboard"]
 
     def get_leaderboard(self, num_limit):
@@ -47,14 +48,23 @@ class Users(Model):
         Returns:
             (list): A list of [num_limit] JSON entries sorted by descending score
         """
-
         leaders = list(self.collection.find().sort("score", pymongo.DESCENDING).limit(num_limit))
         for leader in leaders:
             leader["_id"] = str(leader["_id"])
         return leaders
 
     def get_highscore(self, name):
-        top_entry = list(self.collection.find({"name": name}).sort("score", pymongo.DESCENDING).limit(1))
+        """A function that returns the highest score of
+        the player with the given name in the database
+
+        Args:
+            name (string): the name of the player
+
+        Returns:
+            score (int): the highest score of the given player, -1 if not found
+        """
+        top_entry = list(self.collection.find({"name": name})
+            .sort("score", pymongo.DESCENDING).limit(1))
         if len(top_entry) == 0:
             return -1
         return top_entry[0]["score"]

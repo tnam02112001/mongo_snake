@@ -12,14 +12,22 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/', methods=['GET'])
-def lookup_user():
+def access_highscore():
+    """A function that handles GET request
+    for the highest score of the given player's name
+
+    Returns:
+        resp: a response HTML object including status code and body data
+    """
+    resp = jsonify({"error": "Invalid request"}), 400
     if request.method == 'GET':
         score = Users().get_highscore(request.args.get("name"))
-        return {"highscore": score}, 200
+        resp = {"highscore": score}, 200
+    return resp
 
 @app.route('/leaderboard', methods=['GET', 'POST', 'DELETE'])
 def access_leaderboard():
-    """A function that handle database access request
+    """A function that handles database requests
     to the leaderboard stored in MongoDB server
     Returns:
         resp: a response HTML object including status code and body data
