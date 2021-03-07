@@ -52,3 +52,9 @@ class Users(Model):
         for leader in leaders:
             leader["_id"] = str(leader["_id"])
         return leaders
+
+    def get_highscore(self, name):
+        top_entry = list(self.collection.find({"name": name}).sort("score", pymongo.DESCENDING).limit(1))
+        if len(top_entry) == 0:
+            return -1
+        return top_entry[0]["score"]

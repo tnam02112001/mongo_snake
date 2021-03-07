@@ -13,9 +13,10 @@ const DIRECTIONS = {
 };
 
 //Data of the setting. Will be modified
-const settings = {playerName: "", snakeColor: 'purple', difficulty: 'medium', tongueLength: 'short'};
+const settings = {playerName: "", snakeColor: 'purple', difficulty: 'medium', tongueLength: 'short', level: -1};
 const SPEED_CONSTANTS = {easy: 150, medium: 100, hard: 50};
 const TONGUE_CONSTANTS = {'short': 0, 'long': 1, 'xtra-long': 2};
+const LEVEL_CONSTANTS = {1: 100, 2: 1000};
 
 export {
   CANVAS_SIZE,
@@ -25,5 +26,6 @@ export {
   DIRECTIONS,
   SPEED_CONSTANTS,
   TONGUE_CONSTANTS,
+  LEVEL_CONSTANTS,
   settings
 };

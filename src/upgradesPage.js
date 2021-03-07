@@ -6,14 +6,6 @@ import './App.css';
 import {settings} from './constants'
 
 
-// list of skins
-const list = [
-    { name: 'short' },
-    { name: 'long' },
-    { name: 'xtra-long'}
-];
-
-
 // One item component
 // selected prop will be passed
 const MenuItem = ({text, selected}) => {
@@ -44,8 +36,17 @@ const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 const selected = settings['tongueLength'];
 class upgradesPage extends Component{
     constructor(props) {
-        super(props);
-        // call it again if items count changes
+        super(props); // constructs menu list based off of level
+        let list = [{ name: 'play a game to login' }];
+        if (settings["level"] >= 0) {
+            list = [{name: 'short'}]
+        }
+        if (settings["level"] >= 1) {
+            list.push({name: 'long'})
+        }
+        if (settings["level"] >= 2) {
+            list.push({name: 'xtra-long'})
+        }
         this.menuItems = Menu(list, selected);
     }
 

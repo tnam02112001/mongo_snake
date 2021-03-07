@@ -13,6 +13,7 @@ import {
     APPLE_START,
     SPEED_CONSTANTS,
     TONGUE_CONSTANTS,
+    LEVEL_CONSTANTS,
     settings
 } from './constants'
 
@@ -59,6 +60,16 @@ const Gameplay = () => {
         setSpeed(null);
         setGameOver(true);
         writeLeaderboard();
+        let newLevel = -1;
+        if (score >= LEVEL_CONSTANTS[2]) { // updates player level based on most recent score
+            newLevel = 2;
+        } else if (score >= LEVEL_CONSTANTS[1]) {
+            newLevel = 1;
+        } else {
+            newLevel = 0;
+        }
+        if (newLevel > settings["level"])
+            settings["level"] = newLevel;
     }
     const moveSnake = ({keyCode}) => {
         if (keyCode == 13)
@@ -88,7 +99,11 @@ const Gameplay = () => {
         return false;
     }
     const checkAppleCollision = newSnake => {
-        for (let i = 0; i <= TONGUE_CONSTANTS[settings["tongueLength"]]; i++) {
+        let tongueLength = 0;
+        if (settings["tongueLength"] in TONGUE_CONSTANTS) { // checks if user is logged in
+            tongueLength = TONGUE_CONSTANTS[settings["tongueLength"]];
+        }
+        for (let i = 0; i <= tongueLength; i++) {
             if ((newSnake[0][0] + (dir[0] * i) === apple[0] && newSnake[0][1] + (dir[1] * i) === apple[1]) ||
                 (newSnake[0][0] + (dir[1] * i) === apple[0] && newSnake[0][1] + (dir[0] * i) === apple[1]) ||
                 (newSnake[0][0] + (dir[1] * i * -1) === apple[0] && newSnake[0][1] + (dir[0] * i * -1) === apple[1])) {

@@ -11,6 +11,12 @@ from model_mongodb import Users
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def lookup_user():
+    if request.method == 'GET':
+        score = Users().get_highscore(request.args.get("name"))
+        return {"highscore": score}, 200
+
 @app.route('/leaderboard', methods=['GET', 'POST', 'DELETE'])
 def access_leaderboard():
     """A function that handle database access request
