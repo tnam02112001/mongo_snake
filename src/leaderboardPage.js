@@ -4,6 +4,8 @@ import {FaArrowCircleLeft} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import * as ReactBootstrap from 'react-bootstrap';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+
 
 const leadersBackup = [
     {name: "Nam", score: 31223},

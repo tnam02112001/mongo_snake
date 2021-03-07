@@ -4,6 +4,8 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './App.css';
 import {settings} from './constants'
+import { motion } from 'framer-motion';
+
 
 
 // list of skins

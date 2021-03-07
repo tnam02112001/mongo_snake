@@ -4,6 +4,7 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './App.css';
 import {settings} from './constants'
+import { motion } from 'framer-motion';
 
 
 // list of skins
@@ -44,7 +45,16 @@ const Arrow = ({ text, className }) => {
 };
 const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
-
+const pageTransition = {
+  in: {
+    opacity: 1,
+    x: 0
+  },
+  out: {
+    opacity: 0,
+    x: "-100vh"
+  }
+};
 const selected = settings['snakeColor'];
 class skinsPage extends Component{
     constructor(props) {
@@ -66,22 +76,28 @@ class skinsPage extends Component{
         const menu = this.menuItems;
     
     return (
+      // <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}}>
         <div className = "settingPage">
+          <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
+
             <Link to="/">
                 <FaArrowCircleLeft className="home-button" />
             </Link>
+              <h1 className='mainTitle'>Choose your color</h1>
+              <div className = 'scrollMenu'>
+                  <ScrollMenu
+                  data={menu}
+                  arrowLeft={ArrowLeft}
+                  arrowRight={ArrowRight}
+                  selected={settings['snakeColor']}
+                  onSelect={this.onSelect}
+              /></div>
+            </motion.div>
 
-            <h1 className='mainTitle'>Choose your color</h1>
-            <div className = 'scrollMenu'>
-                <ScrollMenu
-                data={menu}
-                arrowLeft={ArrowLeft}
-                arrowRight={ArrowRight}
-                selected={settings['snakeColor']}
-                onSelect={this.onSelect}
-        /></div>
         </div>
     );
+
+
 }
 }
 

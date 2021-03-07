@@ -42,6 +42,9 @@
     text-align: center;
     height: 100vh;
     min-height: 100vh;
+    background-image: url("/src/images/light1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #8FF4F4;
 }
 
@@ -50,6 +53,9 @@
     text-align: center;
     height: 100vh;
     min-height: 100vh;
+    background-image: url("/src/images/light1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #8FF4F4;
 }
 
@@ -65,7 +71,7 @@
 /* Homepage */
 .homePage {
     background-color: #8FF4F4;
-    background-image: url("https://cdn.discordapp.com/attachments/667630015554256896/814979438462238740/6480375.jpg");
+    background-image: url("/src/images/light1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -76,7 +82,11 @@
     text-align: center;
     height: 100vh;
     min-height: 100vh;
+    background-image: url("/src/images/light1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #8FF4F4;
+    overflow: hidden;
 }
 
 .scrollMenu {
@@ -277,7 +287,7 @@
 
 .gameplay-div {
     height: 100vh;
-    background-image: url("https://i.imgur.com/ISS5Jow.jpeg");
+    background-image: url("/src/images/dark1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     /* background-color: #8FF4F4;  */
@@ -336,4 +346,24 @@
     white-space: nowrap;
 }
 
-/* test */
+/* fading */
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}

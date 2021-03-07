@@ -4,6 +4,8 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 import './App.css';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {settings} from './constants'
+import { motion } from 'framer-motion';
+
 
 
 

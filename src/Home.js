@@ -6,7 +6,18 @@ import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Form from './Form'
 import {settings} from './constants'
+import { motion } from 'framer-motion';
 
+
+const pageTransition = {
+    in: {
+      opacity: 1,
+      y:0
+    },
+    out: {
+      opacity: 0,
+    }
+  };
 
 class Home extends Component {
     handleSubmit = name =>{
@@ -18,6 +29,8 @@ class Home extends Component {
         <div className="homePage">
             {/* style={{backgroundColor: '#8FF4F4', width : '100vh', height : '720px', position: 'absolute', top: '0px'}} */}
             {/* <small style = {{display: 'flex', textAlign: 'center'}}>Skins</small> <br /> */}
+            <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
+
             <div className="button-container">
                 <h3 className="homeTitle">MongoSnake</h3>
                 
@@ -50,6 +63,7 @@ class Home extends Component {
                     </div>
                 </div>
             </div>
+            </motion.div>
         </div>
     );
     }
