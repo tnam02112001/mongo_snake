@@ -65,19 +65,24 @@
 /* Homepage */
 .homePage {
     background-color: #8FF4F4;
-    background-image: url("https://cdn.discordapp.com/attachments/667630015554256896/814979438462238740/6480375.jpg");
+    background-image: url("/src/images/light1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     min-height: 100vh;
 }
 
-.settingPage {
+.page-div {
     text-align: center;
     height: 100vh;
     min-height: 100vh;
     background-color: #8FF4F4;
+    background-image: url("/src/images/light1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
+
 
 .scrollMenu {
     display: flex;
@@ -277,7 +282,7 @@
 
 .gameplay-div {
     height: 100vh;
-    background-image: url("https://i.imgur.com/ISS5Jow.jpeg");
+    background-image: url("/src/images/dark1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     /* background-color: #8FF4F4;  */

@@ -4,6 +4,7 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 import './App.css';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {settings} from './constants'
+import { motion } from 'framer-motion';
 
 
 
@@ -44,6 +45,21 @@ const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 const selected = settings['difficulty'];
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: "-100vh"
+  },
+  in: {
+    opacity: 1,
+    y: 0
+  },
+  out: {
+    opacity: 0,
+    y: "-100%"
+  }
+};
 class settingsPage extends Component {
     constructor(props) {
         super(props);
@@ -62,19 +78,22 @@ class settingsPage extends Component {
         const menu = this.menuItems;
     
     return (
-        <div className = 'settingPage'>
-            <Link to="/">
-                <FaArrowCircleLeft className="home-button" />
-            </Link>
-            <h1 className='mainTitle'>Choose your difficulty</h1>
-            <div className = 'scrollMenu'>
-                <ScrollMenu
-                data={menu}
-                arrowLeft={ArrowLeft}
-                arrowRight={ArrowRight}
-                selected={settings['difficulty']}
-                onSelect={this.onSelect}
-        /></div>
+        <div className = 'page-div'>
+            <motion.div initial="out" animate="in" exit="out" variants={pageVariants}>
+
+              <Link to="/">
+                  <FaArrowCircleLeft className="home-button" />
+              </Link>
+              <h1 className='mainTitle'>Choose your difficulty</h1>
+              <div className = 'scrollMenu'>
+                  <ScrollMenu
+                  data={menu}
+                  arrowLeft={ArrowLeft}
+                  arrowRight={ArrowRight}
+                  selected={settings['difficulty']}
+                  onSelect={this.onSelect}
+          /></div>
+          </motion.div>
         </div>
     );
 }

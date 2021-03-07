@@ -4,6 +4,8 @@ import {FaArrowCircleLeft} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import * as ReactBootstrap from 'react-bootstrap';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+
 
 const leadersBackup = [
     {name: "Nam", score: 31223},
@@ -22,6 +24,22 @@ const renderPlayer = (player, index) => {
         </tr>
     )
 }
+
+const pageVariants = {
+    initial: {
+      opacity: 0,
+      y: "-100vh"
+    },
+    in: {
+      opacity: 1,
+      y: 0
+    },
+    out: {
+      opacity: 0,
+      y: "-100%"
+    }
+  };
+
 
 class leaderboardPage extends Component {
      state = {
@@ -42,25 +60,28 @@ class leaderboardPage extends Component {
     render() {
         const {leaders} = this.state
         return (
-            <div className="leaderboard-div">
-                <Link to="/">
-                    <FaArrowCircleLeft className="home-button"/>
-                </Link>
-                <h1 className="mainTitle">Leaderboard</h1>
-                <div className="tableContainer">
-                    <ReactBootstrap.Table striped hover className="tablecss">
-                        <thead>
-                        <tr className="colNames">
-                            <th>Rank</th>
-                            <th>Name</th>
-                            <th>Score</th>
-                        </tr>
-                        </thead>
-                        <tbody className="dataText">
-                        {leaders.map(renderPlayer)}
-                        </tbody>
-                    </ReactBootstrap.Table>
-                </div>
+            <div className="page-div">
+                <motion.div initial="out" animate="in" exit="out" variants={pageVariants}>
+
+                    <Link to="/">
+                        <FaArrowCircleLeft className="home-button"/>
+                    </Link>
+                    <h1 className="mainTitle">Leaderboard</h1>
+                    <div className="tableContainer">
+                        <ReactBootstrap.Table striped hover className="tablecss">
+                            <thead>
+                            <tr className="colNames">
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                            </thead>
+                            <tbody className="dataText">
+                            {leaders.map(renderPlayer)}
+                            </tbody>
+                        </ReactBootstrap.Table>
+                    </div>
+                </motion.div>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './App.css';
 import {settings} from './constants'
+import { motion } from 'framer-motion';
 
 
 // One item component
@@ -34,6 +35,23 @@ const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 const selected = settings['tongueLength'];
+
+const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "100vw"
+    },
+    in: {
+      opacity: 1,
+      x: 0
+    },
+    out: {
+      opacity: 0,
+      x: "-100vw"
+    }
+  };
+
+
 class upgradesPage extends Component{
     constructor(props) {
         super(props); // constructs menu list based off of level
@@ -63,20 +81,23 @@ class upgradesPage extends Component{
         const menu = this.menuItems;
 
         return (
-            <div className = "settingPage">
-                <Link to="/">
-                    <FaArrowCircleLeft className="home-button" />
-                </Link>
+            <div className = "page-div">
+                <motion.div initial="initial" animate="in" exit="out" variants={pageVariants}>
 
-                <h1 className='mainTitle'>Choose your tongue length</h1>
-                <div className = 'scrollMenu'>
-                    <ScrollMenu
-                        data={menu}
-                        arrowLeft={ArrowLeft}
-                        arrowRight={ArrowRight}
-                        selected={settings['tongueLength']}
-                        onSelect={this.onSelect}
-                    /></div>
+                    <Link to="/">
+                        <FaArrowCircleLeft className="home-button" />
+                    </Link>
+
+                    <h1 className='mainTitle'>Choose your tongue length</h1>
+                    <div className = 'scrollMenu'>
+                        <ScrollMenu
+                            data={menu}
+                            arrowLeft={ArrowLeft}
+                            arrowRight={ArrowRight}
+                            selected={settings['tongueLength']}
+                            onSelect={this.onSelect}
+                        /></div>
+                </motion.div>
             </div>
         );
     }

@@ -4,6 +4,8 @@ import {useInterval} from './useInterval'
 import './App.css'
 import { Link } from 'react-router-dom';
 import { FaArrowCircleLeft } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
 
 import {
     CANVAS_SIZE,
@@ -17,7 +19,19 @@ import {
     settings
 } from './constants'
 
+const pageVariants = {
+    in: {
+      opacity: 1,
+      y:0
+    },
+    out: {
+      opacity: 0,
+    }
+  };
 
+const pageTransitions = {
+    duration: 3
+}
 const Gameplay = () => {
 
     const canvasRef = useRef()
@@ -141,27 +155,30 @@ const Gameplay = () => {
 
     return (
         <div>
-            <Link to="/">
-                <FaArrowCircleLeft className="home-button" />
-            </Link>
-            <div className="gameplay-div">
-                <div role="button" tabIndex="0" className="game-screen" onKeyDown={e => moveSnake(e)}>
-                    <div className="rectangle"/>
-                    <div className="score-text"> SCORE: {score}</div>
-                    <div className="name-text"> Welcome, {settings.playerName}</div>
-                    <canvas 
-                        style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
-                        ref={canvasRef}
-                        width={`${CANVAS_SIZE[0]}px`}
-                        height={`${CANVAS_SIZE[1]}px`}
-                    />
-                    {gameOver &&
-                    <dif className="game-over">GAME OVER!</dif>}
-                    <div className="startgame-button">
-                        <button onClick={startGame}>Start Playing</button>
+            <motion.div initial="out" animate="in" exit="out" variants={pageVariants} transition={pageTransitions}>
+
+                <Link to="/">
+                    <FaArrowCircleLeft className="home-button" />
+                </Link>
+                <div className="gameplay-div">
+                    <div role="button" tabIndex="0" className="game-screen" onKeyDown={e => moveSnake(e)}>
+                        <div className="rectangle"/>
+                        <div className="score-text"> SCORE: {score}</div>
+                        <div className="name-text"> Welcome, {settings.playerName}</div>
+                        <canvas 
+                            style={{backgroundColor: "lightgreen", position: "absolute", top: "180px"}}
+                            ref={canvasRef}
+                            width={`${CANVAS_SIZE[0]}px`}
+                            height={`${CANVAS_SIZE[1]}px`}
+                        />
+                        {gameOver &&
+                        <dif className="game-over">GAME OVER!</dif>}
+                        <div className="startgame-button">
+                            <button onClick={startGame}>Start Playing</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>)
 }
 export default Gameplay;
