@@ -30,7 +30,7 @@ const pageVariants = {
   };
 
 const pageTransitions = {
-    duration: 3
+    duration: 0.75
 }
 const Gameplay = () => {
 

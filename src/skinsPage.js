@@ -47,18 +47,18 @@ const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: "-100vw"
-  },
-  in: {
-    opacity: 1,
-    x: 0
-  },
-  out: {
-    opacity: 0,
-    x: "100vw"
-  }
+    initial: {
+        opacity: 0,
+        y: "-100vh"
+    },
+    in: {
+        opacity: 1,
+        y: 0
+    },
+    out: {
+        opacity: 0,
+        y: "-100%"
+    }
 };
 const selected = settings['snakeColor'];
 class skinsPage extends Component{
