@@ -12,20 +12,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route
-          render={() => (
-            <AnimatePresence exitBeforeEnter>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/skins" component={skinsPage} />
-                <Route path="/settings" component={settingsPage} />
-                <Route path="/gameplay" component={Gameplay} />
-                <Route path="/leaderboard" component={leaderboardPage} />
-                <Route path="/upgrades" component={upgradesPage} />
-              </Switch>
-            </AnimatePresence>
-          )}
-        />
+        <AnimatePresence exitBeforeEnter>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/skins" component={skinsPage} />
+            <Route path="/settings" component={settingsPage} />
+            <Route path="/gameplay" component={Gameplay} />
+            <Route path="/leaderboard" component={leaderboardPage} />
+            <Route path="/upgrades" component={upgradesPage} />
+          </Switch>
+        </AnimatePresence>
       </div>
     </Router>
   );

@@ -27,6 +27,7 @@ describe("routes using array of routers", () => {
       pathMap[routeProps.path] = routeProps.component;
       return pathMap;
     }, {});
+    console.log(pathMap);
   });
   it("should show Home component for / router (getting array of routes)", () => {
     expect(pathMap["/"]).toBe(Home);
