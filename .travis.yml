@@ -18,13 +18,13 @@ jobs:
       before_install:
         - npm i -g npm@6.14.10
       install: 
-        - npm install react-bootstrap-validation --save
-        - npm install bootstrap --save
-        - npm install react-bootstrap --save
-        - npm install react-horizontal-scrolling-menu --save
-        - npm install axios --save
-        - npm install enzyme --save
-        - npm install enzyme-adapter-react-16 --save
+        - npm install react-bootstrap-validation
+        - npm install react-bootstrap
+        - npm install react-horizontal-scrolling-menu
+        - npm install axios 
+        - npm install enzyme
+        - npm install enzyme-adapter-react-16
+        - npm install framer-motion
       cache: npm
       script:
         - npm test
