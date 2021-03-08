@@ -1,4 +1,4 @@
-# Mongo Snake ![Markdown](https://travis-ci.com/tnam02112001/mongo_snake.svg?branch=mongosnake_dev)
+# Mongo Snake
 
 MongoSnake is a 2D Snake Game developed by Nam Nguyen, Edward Du and Michael Greene from February to March, 2021. In our game, you are a snake travelling around the grass to eat the apples. The more you eat, the longer you are, and the higher your score is. When maneuvering around the grass, you are not allowed to hit the border of the grassfield, or hit your own body. Unfortunately, dying is inevitable, but it is your job to survive for as long as possible. Enjoy!
 
@@ -11,6 +11,12 @@ MongoSnake is a 2D Snake Game developed by Nam Nguyen, Edward Du and Michael Gre
 | Link                                                                                | Last Modified |
 | ----------------------------------------------------------------------------------- | ------------- |
 | [Figma](https://www.figma.com/file/czEoN201Y6qoVh6ACjE5F2/MongoSnake?node-id=8%3A7) | Feb 3 2021    |
+
+---
+# Build Status
+| CI Server | Status|
+| --- | --- |
+[TravisCI](https://travis-ci.com/github/tnam02112001/mongo_snake) |![Markdown](https://travis-ci.com/tnam02112001/mongo_snake.svg?branch=master)
 
 ---
 
